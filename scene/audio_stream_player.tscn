@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dodor2d7v2oxl"]
+
+[ext_resource type="AudioStream" uid="uid://bs36i20bwn433" path="res://sound/night-hunt.ogg" id="1_jlyyb"]
+[ext_resource type="Script" uid="uid://ce34tfc72oin4" path="res://script/audio_manager.gd" id="1_ok27u"]
+[ext_resource type="AudioStream" uid="uid://xaqibyodwh38" path="res://sound/fail.mp3" id="3_2s2ww"]
+
+[node name="AudioPlayer" type="Node"]
+script = ExtResource("1_ok27u")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_jlyyb")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+
+[node name="DeadSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2s2ww")
+volume_db = 15.0

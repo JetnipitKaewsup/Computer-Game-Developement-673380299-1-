@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://chma7fad7sql4"]
+
+[ext_resource type="PackedScene" uid="uid://b3imq2khofg84" path="res://character/player/Stag.glb" id="1_s8txk"]
+
+[node name="Root Scene" instance=ExtResource("1_s8txk")]
+
+[node name="Skeleton3D" parent="RootNode/AnimalArmature" index="0"]
+bones/0/position = Vector3(0.000565961, 0.00212689, 0.00871921)
+bones/0/rotation = Quaternion(0.741522, -0.00698246, -0.00771806, 0.670848)
+bones/1/position = Vector3(-2.79397e-11, 0.0202015, -0.0131855)
+bones/4/rotation = Quaternion(0.133965, 2.12743e-05, -3.49977e-06, 0.990986)
+bones/5/rotation = Quaternion(0.181522, -0.00184111, 0.00116712, 0.983385)
+bones/6/rotation = Quaternion(0.0597476, 0.000431809, -0.000396018, 0.998213)
+bones/7/rotation = Quaternion(-0.00517319, -0.000992482, 0.000865615, 0.999986)
+bones/8/rotation = Quaternion(-0.444696, 0.00608681, -0.000298291, 0.895661)
+bones/11/position = Vector3(-0.00215737, 0.0105565, -0.00258791)
+bones/12/rotation = Quaternion(0.74784, 0.648922, 0.0957192, 0.102338)
+bones/13/rotation = Quaternion(5.2707e-09, 0.999997, 0.00236668, 2.26371e-06)
+bones/15/position = Vector3(0.0021561, 0.0105014, -0.00208768)
+bones/16/rotation = Quaternion(0.744388, -0.665738, 0.0270006, -0.044162)
+bones/17/rotation = Quaternion(-4.73694e-09, 0.999997, 0.00235514, -2.2637e-06)
+bones/19/position = Vector3(0.00192836, 0.00346923, -5.33885e-05)
+bones/19/rotation = Quaternion(0.523522, 0.464058, 0.487872, -0.522069)
+bones/20/rotation = Quaternion(0.739436, 0.655723, 0.0998128, 0.115323)
+bones/21/rotation = Quaternion(0.675529, -0.000275082, 0.00566689, 0.737312)
+bones/22/rotation = Quaternion(-0.00285783, 0.765232, -0.643744, -0.00217492)
+bones/24/position = Vector3(-0.00192836, 0.00346923, -5.3381e-05)
+bones/24/rotation = Quaternion(0.642284, -0.476414, -0.338198, -0.496108)
+bones/25/rotation = Quaternion(0.758092, -0.632764, -0.0932305, 0.127333)
+bones/26/rotation = Quaternion(0.800228, -0.00547037, -0.0379534, 0.598469)
+bones/27/rotation = Quaternion(0.0226903, 0.563578, -0.825555, 0.0180081)
+bones/30/rotation = Quaternion(-0.298692, 0.00537178, 0.000377471, 0.954334)
+bones/31/rotation = Quaternion(-0.199997, 0.00374261, 0.00374886, 0.979782)
+bones/35/position = Vector3(0.00335582, 0.00539018, 0.0409793)
+bones/39/position = Vector3(-0.00335582, 0.00539018, 0.0409793)
+bones/41/position = Vector3(0.00388883, 0.0256665, 0.0115626)
+bones/41/rotation = Quaternion(-0.122586, -3.23384e-07, 3.99436e-08, 0.992458)
+bones/44/position = Vector3(0.00374139, -0.013955, 0.00267089)
+bones/44/rotation = Quaternion(-0.826788, -1.8329e-07, 2.69402e-07, 0.562514)
+bones/47/position = Vector3(-0.00388883, 0.0177456, 0.0125123)
+bones/47/rotation = Quaternion(-0.313971, 3.02645e-07, -1.06876e-07, 0.949433)
+bones/50/position = Vector3(-0.00374139, -0.00666178, 0.004075)
+bones/50/rotation = Quaternion(-0.702938, 2.31755e-07, -2.29046e-07, 0.711251)
+
+[node name="Stag_Horns" parent="RootNode/AnimalArmature/Skeleton3D" index="0"]
+transform = Transform3D(0.999825, 0.0185401, -0.00259835, -0.0182221, 0.995583, 0.0921063, 0.00429453, -0.0920426, 0.995746, -3.44972e-06, -0.0273491, 0.0355473)

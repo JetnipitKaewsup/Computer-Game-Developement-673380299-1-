@@ -1,0 +1,303 @@
+[gd_scene load_steps=29 format=3 uid="uid://llrk5x3n7s7n"]
+
+[ext_resource type="PackedScene" uid="uid://c13tdyacmno2w" path="res://scene/player.tscn" id="1_itxqv"]
+[ext_resource type="Script" uid="uid://4npa3x8u4en3" path="res://script/main.gd" id="1_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://17muomseht62" path="res://scene/mob.tscn" id="2_brvut"]
+[ext_resource type="Script" uid="uid://b43rv3oxwking" path="res://script/score_label.gd" id="4_brvut"]
+[ext_resource type="PackedScene" uid="uid://bqm1fhhn46nya" path="res://art/decorations/Fern.glb" id="5_hybxs"]
+[ext_resource type="PackedScene" uid="uid://ctnu34qybqyo8" path="res://art/decorations/Flower Group.glb" id="6_v2gmf"]
+[ext_resource type="PackedScene" uid="uid://dwuftlamyng1f" path="res://art/decorations/Grass.glb" id="7_jcbur"]
+[ext_resource type="PackedScene" uid="uid://3imvmdbfqc8k" path="res://art/decorations/Pine (1).glb" id="8_smf0o"]
+[ext_resource type="PackedScene" uid="uid://c2o8u33u4gl1c" path="res://art/decorations/Pine.glb" id="9_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://b7xgx1i6mknod" path="res://art/decorations/Plant (1).glb" id="10_0vlqb"]
+[ext_resource type="PackedScene" uid="uid://nkai07qp1lcx" path="res://art/decorations/Plant Big.glb" id="11_gjnwh"]
+[ext_resource type="PackedScene" uid="uid://gcvbamf8r1tv" path="res://art/decorations/Rock Medium (1).glb" id="12_fdqew"]
+[ext_resource type="PackedScene" uid="uid://b5pruw5sdqqnx" path="res://art/decorations/Rock Medium.glb" id="13_0d4pv"]
+[ext_resource type="PackedScene" uid="uid://b8u1mpgy7t56c" path="res://art/decorations/Tree (1).glb" id="14_gtqqq"]
+[ext_resource type="PackedScene" uid="uid://dpkrvk58votf3" path="res://art/decorations/Tall Grass.glb" id="15_v2gmf"]
+[ext_resource type="PackedScene" uid="uid://cv031cscha704" path="res://art/decorations/Plant.glb" id="16_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://b74kku50mfoxo" path="res://art/decorations/Tree (2).glb" id="17_0vlqb"]
+[ext_resource type="PackedScene" uid="uid://cnqpmob3ixvfv" path="res://art/decorations/Tree.glb" id="18_gjnwh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_no8bm"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brvut"]
+albedo_color = Color(0.0959472, 0.331752, 1.44392e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_itxqv"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ha60"]
+albedo_color = Color(0.95112, 0.20566, 0.59382, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4j5ol"]
+material = SubResource("StandardMaterial3D_0ha60")
+top_radius = 2.0
+bottom_radius = 2.0
+
+[sub_resource type="Curve3D" id="Curve3D_p1hux"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -30.5515, 0, -29.6951, 0, 0, 0, 0, 0, 0, -29.3046, 0, 28.9085, 0, 0, 0, 0, 0, 0, 30.5458, 0, 28.9085, 0, 0, 0, 0, 0, 0, 30.1302, 0, -30.942),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Theme" id="Theme_0ha60"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4j5ol"]
+font_size = 50
+font_color = Color(1, 0.388235, 0.447059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_brvut"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_v2gmf"]
+font_size = 20
+
+[node name="Main" type="Node"]
+script = ExtResource("1_wp4xf")
+mob_scene = ExtResource("2_brvut")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_no8bm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+material_override = SubResource("StandardMaterial3D_brvut")
+mesh = SubResource("BoxMesh_itxqv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.703655, 0.710541, 0, -0.710541, 0.703655, 0, 5.469, 10.4274)
+shadow_enabled = true
+shadow_opacity = 0.6
+shadow_blur = 2.828
+
+[node name="Player" parent="." instance=ExtResource("1_itxqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0778594, 0)
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.573577, 0.819152, 0, -0.819152, 0.573577, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+fov = 56.6
+size = 19.0
+near = 5.0
+far = 100.0
+
+[node name="Cylinders" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Cylinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1054, 0, -29.3547)
+mesh = SubResource("CylinderMesh_4j5ol")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="Cylinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.692, 0, -29.028)
+mesh = SubResource("CylinderMesh_4j5ol")
+
+[node name="MeshInstance3" type="MeshInstance3D" parent="Cylinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.854, 0, 29.8269)
+mesh = SubResource("CylinderMesh_4j5ol")
+
+[node name="MeshInstance4" type="MeshInstance3D" parent="Cylinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4661, 0, 29.9212)
+mesh = SubResource("CylinderMesh_4j5ol")
+
+[node name="SpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_p1hux")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+transform = Transform3D(-0.999774, 0, -0.0212722, 0, 1, 0, 0.0212722, 0, -0.999774, -30.5515, 0, -29.6951)
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0ha60")
+
+[node name="ScoreLabel" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 216.0
+offset_bottom = 76.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_4j5ol")
+script = ExtResource("4_brvut")
+
+[node name="Retry" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.258824, 0.258824, 0.258824, 0.576471)
+
+[node name="Label" type="Label" parent="UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to retry"
+label_settings = SubResource("LabelSettings_brvut")
+
+[node name="NameLabel" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 603.0
+offset_right = 403.0
+offset_bottom = 631.0
+text = "673380299-1 เจตนิพิฐ แก้วทรัพย์ Section 1"
+label_settings = SubResource("LabelSettings_v2gmf")
+
+[node name="Decorations" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Root Scene" parent="Decorations" instance=ExtResource("5_hybxs")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.89716, -0.078064, 6.17768)
+
+[node name="Root Scene2" parent="Decorations" instance=ExtResource("6_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.34815, 0.0345837, 1.98513)
+
+[node name="Root Scene3" parent="Decorations" instance=ExtResource("7_jcbur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00846, 0.00660837, 2.02691)
+
+[node name="Root Scene4" parent="Decorations" instance=ExtResource("7_jcbur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.56169, -0.329572, 5.63057)
+
+[node name="Root Scene5" parent="Decorations" instance=ExtResource("8_smf0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5551, -2.38256, -0.0740585)
+
+[node name="Root Scene6" parent="Decorations" instance=ExtResource("9_tv8i1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2826, 0.0251839, -4.20194)
+
+[node name="Root Scene7" parent="Decorations" instance=ExtResource("10_0vlqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.764256, 0.023922, 4.01728)
+
+[node name="Root Scene8" parent="Decorations" instance=ExtResource("11_gjnwh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 5.31659, -0.202104, 0.798232)
+
+[node name="Root Scene9" parent="Decorations" instance=ExtResource("12_fdqew")]
+transform = Transform3D(-0.858235, 0, 0.513257, 0, 1, 0, -0.513257, 0, -0.858235, -4.92546, -0.109562, 5.5858)
+
+[node name="Root Scene10" parent="Decorations" instance=ExtResource("13_0d4pv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73689, -0.16486, -0.635498)
+
+[node name="Root Scene11" parent="Decorations" instance=ExtResource("14_gtqqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40909, 0.197595, 5.67698)
+
+[node name="Root Scene12" parent="Decorations" instance=ExtResource("10_0vlqb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.56452, 0, -1.23115)
+
+[node name="Root Scene13" parent="Decorations" instance=ExtResource("7_jcbur")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.38706, 0.0111926, 3.93587)
+
+[node name="Root Scene14" parent="Decorations" instance=ExtResource("7_jcbur")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.77673, 0.0111926, -1.04948)
+
+[node name="Root Scene15" parent="Decorations" instance=ExtResource("7_jcbur")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.81118, 0.0111926, 6.30919)
+
+[node name="Root Scene16" parent="Decorations" instance=ExtResource("15_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.05404, 0.0156802, -3.03956)
+
+[node name="Root Scene17" parent="Decorations" instance=ExtResource("15_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.7766, 0.0156812, -1.11279)
+
+[node name="Root Scene18" parent="Decorations" instance=ExtResource("15_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1322, 0.0156812, 8.62441)
+
+[node name="Root Scene19" parent="Decorations" instance=ExtResource("15_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.4998, 0.0156812, 4.36391)
+
+[node name="Root Scene20" parent="Decorations" instance=ExtResource("15_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.1005, 0.0156812, 2.17605)
+
+[node name="Root Scene21" parent="Decorations" instance=ExtResource("15_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.25761, 0.0156812, 5.18552)
+
+[node name="Root Scene22" parent="Decorations" instance=ExtResource("15_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.03549, 0.0156812, 0.581423)
+
+[node name="Root Scene23" parent="Decorations" instance=ExtResource("6_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.93635, 0.0172919, 3.58366)
+
+[node name="Root Scene24" parent="Decorations" instance=ExtResource("6_v2gmf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.15217, 0.0172919, -0.902108)
+
+[node name="Root Scene25" parent="Decorations" instance=ExtResource("16_tv8i1")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.923714, 0.0175121, 4.53254)
+
+[node name="Root Scene26" parent="Decorations" instance=ExtResource("14_gtqqq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.53487, 0.121386, -4.82879)
+
+[node name="Root Scene27" parent="Decorations" instance=ExtResource("17_0vlqb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.77611, 0.121386, -6.7327)
+
+[node name="Root Scene28" parent="Decorations" instance=ExtResource("17_0vlqb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.12389, 0.121386, -3.45313)
+
+[node name="Root Scene29" parent="Decorations" instance=ExtResource("17_0vlqb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.36709, 0.121386, 1.00667)
+
+[node name="Root Scene30" parent="Decorations" instance=ExtResource("18_gjnwh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.95689, 0.121386, 2.52388)
+
+[node name="Root Scene31" parent="Decorations" instance=ExtResource("18_gjnwh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.52984, 0.121386, -0.195068)
+
+[node name="Root Scene32" parent="Decorations" instance=ExtResource("18_gjnwh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.476058, 0.121386, -5.12804)
+
+[node name="Root Scene33" parent="Decorations" instance=ExtResource("18_gjnwh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5425, 0.121386, -6.52619)
+
+[node name="Root Scene34" parent="Decorations" instance=ExtResource("17_0vlqb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.6053, 0.121386, -4.95599)
+
+[node name="Root Scene35" parent="Decorations" instance=ExtResource("8_smf0o")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.58504, 0.117544, -4.96948)
+
+[node name="Root Scene36" parent="Decorations" instance=ExtResource("8_smf0o")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.52705, 0.117544, 2.49279)
+
+[node name="Root Scene37" parent="Decorations" instance=ExtResource("5_hybxs")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -4.69003, 0.123735, 1.79347)
+
+[node name="Root Scene38" parent="Decorations" instance=ExtResource("18_gjnwh")]
+transform = Transform3D(-0.21401, 0, 0.451885, 0, 0.5, 0, -0.451885, 0, -0.21401, 7.52045, 0.598226, -1.12869)
+
+[node name="Root Scene39" parent="Decorations" instance=ExtResource("18_gjnwh")]
+transform = Transform3D(-0.21401, 0, 0.451885, 0, 0.5, 0, -0.451885, 0, -0.21401, 6.80861, 0.598226, -2.39784)
+
+[node name="Root Scene40" parent="Decorations" instance=ExtResource("17_0vlqb")]
+transform = Transform3D(-0.21401, 0, 0.451885, 0, 0.5, 0, -0.451885, 0, -0.21401, 7.7728, 0.598226, -4.03045)
+
+[node name="Root Scene41" parent="Decorations" instance=ExtResource("8_smf0o")]
+transform = Transform3D(-0.21401, 0, 0.451885, 0, 0.5, 0, -0.451885, 0, -0.21401, 6.91324, 0.594384, -5.8139)
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

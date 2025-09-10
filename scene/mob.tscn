@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://17muomseht62"]
+[gd_scene load_steps=6 format=3 uid="uid://17muomseht62"]
 
 [ext_resource type="Script" uid="uid://c3o603ejo7ljr" path="res://script/mob.gd" id="1_rtm52"]
 [ext_resource type="PackedScene" uid="uid://bicorb7we351t" path="res://art/mob.glb" id="2_0a0b6"]
+[ext_resource type="PackedScene" uid="uid://ch1vig82o0gxv" path="res://scene/wolf.tscn" id="3_0a0b6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wts8j"]
 size = Vector3(2, 1, 2)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0a0b6"]
+height = 1.21143
+radius = 4.6665
 
 [node name="Mob" type="CharacterBody3D" groups=["mob"]]
 collision_layer = 2
@@ -14,6 +19,10 @@ script = ExtResource("1_rtm52")
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="mob" parent="Pivot" instance=ExtResource("2_0a0b6")]
+visible = false
+
+[node name="wolf" parent="Pivot" instance=ExtResource("3_0a0b6")]
+transform = Transform3D(-0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0501709, 0.227295, -0.10498)
@@ -22,4 +31,12 @@ shape = SubResource("BoxShape3D_wts8j")
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 aabb = AABB(-1.27293, -1, -2.22648, 2.54585, 2, 4.45296)
 
+[node name="PlayerDetector" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.394287, 0)
+shape = SubResource("CylinderShape3D_0a0b6")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

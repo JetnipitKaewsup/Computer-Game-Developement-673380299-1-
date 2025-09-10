@@ -1,14 +1,19 @@
 extends CharacterBody3D
 signal squashed
 # Minimum speed of the mob in meters per second.
-@export var min_speed = 10
+@export var min_speed = 8
 # Maximum speed of the mob in meters per second.
-@export var max_speed = 18
-
+@export var max_speed = 15
+@onready var wolf_animation = $Pivot/wolf/AnimationPlayer
+var attack = false
 
 func _physics_process(_delta):
-	move_and_slide()
-
+	if attack:
+		wolf_animation.play("Attack")
+		move_and_slide()
+	else:
+		wolf_animation.play("Walk")
+		move_and_slide()
 # This function will be called from the Main scene.
 func initialize(start_position, player_position):
 	# We position the mob by placing it at start_position
@@ -32,3 +37,14 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 func squash():
 	squashed.emit()
 	queue_free()
+
+
+
+
+
+func _on_player_detector_body_entered(body: Node3D) -> void:
+	attack = true
+
+
+func _on_player_detector_body_exited(body: Node3D) -> void:
+	attack = false

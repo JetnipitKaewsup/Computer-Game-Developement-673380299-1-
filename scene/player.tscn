@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c13tdyacmno2w"]
+[gd_scene load_steps=9 format=3 uid="uid://c13tdyacmno2w"]
 
 [ext_resource type="Script" uid="uid://tn00pdx3h1y" path="res://script/player.gd" id="1_hjaqi"]
 [ext_resource type="PackedScene" uid="uid://d0ypm0v45pwdv" path="res://art/player.glb" id="1_xo3ru"]
+[ext_resource type="PackedScene" uid="uid://chma7fad7sql4" path="res://scene/stag.tscn" id="3_fvtld"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hjaqi"]
 radius = 0.8
@@ -80,6 +81,10 @@ script = ExtResource("1_hjaqi")
 
 [node name="character" parent="Pivot" instance=ExtResource("1_xo3ru")]
 transform = Transform3D(1, 0, 0, 0, 0.987688, 0.156434, 0, -0.156434, 0.987688, 0, 0.35, 0)
+visible = false
+
+[node name="stag" parent="Pivot" instance=ExtResource("3_fvtld")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, -0.436779, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0132552, 0)

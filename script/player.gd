@@ -9,15 +9,17 @@ extends CharacterBody3D
 # Vertical impulse applied to the character upon bouncing over a mob in
 # meters per second.
 @export var bounce_impulse = 16
-
+@onready var stag_animation = $Pivot/stag/AnimationPlayer
 
 signal hit
 var target_velocity = Vector3.ZERO
 
+
 func _physics_process(delta):
+	
 	# We create a local variable to store the input direction.
 	var direction = Vector3.ZERO
-
+	
 	# We check for each move input and update the direction accordingly.
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
@@ -32,7 +34,9 @@ func _physics_process(delta):
 		
 	# Jumping.
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		stag_animation.play("Jump_toIdle")
 		target_velocity.y = jump_impulse
+		
 	# Iterate through all collisions that occurred this frame
 	for index in range(get_slide_collision_count()):
 		# We get one of the collisions with the player
@@ -53,18 +57,24 @@ func _physics_process(delta):
 			if Vector3.UP.dot(collision.get_normal()) > 0.1:
 				# If so, we squash it and bounce.
 				mob.squash()
-				target_velocity.y = bounce_impulse
+				AudioManager.play_sfx("res://sound/attack.mp3",0)
+				
+				#target_velocity.y = bounce_impulse
 				# Prevent further duplicate calls.
 				break
 	
 	
 	if direction != Vector3.ZERO:
+		stag_animation.play("Walk")
 		direction = direction.normalized()
 		# Setting the basis property will affect the rotation of the node.
 		$Pivot.basis = Basis.looking_at(direction)
-		$AnimationPlayer.speed_scale = 4
+		stag_animation.speed_scale = 4
+		
 	else:
-		$AnimationPlayer.speed_scale = 1
+		stag_animation.play("Idle")
+		stag_animation.speed_scale = 1
+		
 	# Ground Velocity
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
@@ -86,3 +96,5 @@ func die():
 
 func _on_mob_detector_body_entered(body: Node3D) -> void:
 	die()
+	AudioManager.play_dead_sfx()
+	AudioManager.stop_bg_music()

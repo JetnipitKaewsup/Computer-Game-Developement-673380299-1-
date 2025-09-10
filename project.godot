@@ -18,12 +18,11 @@ config/icon="res://icon.webp"
 
 [autoload]
 
-MusicPlayer="*res://scene/audio_stream_player.tscn"
+AudioManager="*res://scene/audio_stream_player.tscn"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=540
+window/stretch/mode="viewport"
 
 [filesystem]
 

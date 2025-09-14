@@ -170,7 +170,7 @@ offset_left = 21.0
 offset_top = 603.0
 offset_right = 403.0
 offset_bottom = 631.0
-text = "673380299-1 เจตนิพิฐ แก้วทรัพย์ Section 1"
+text = "673380299-1 Jetnipit Kaewsup Section 1"
 label_settings = SubResource("LabelSettings_v2gmf")
 
 [node name="Decorations" type="Node3D" parent="."]

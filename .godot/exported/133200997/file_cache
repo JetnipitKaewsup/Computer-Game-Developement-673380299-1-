@@ -3,10 +3,10 @@ res://art/eye.tres::181f58cc6da21b79e5c2bdc950b5d80b::1757491485::res://.godot/e
 res://art/mob_body.tres::c2c32f8082c89bcbe08f96d216e4bb7f::1757491485::res://.godot/exported/133200997/export-58b0cc164e8fc866840c9c5c6c34f5a3-mob_body.res
 res://art/mob_eye.tres::7457a69f45dd2322ce9cb4cd507a5ba8::1757491485::res://.godot/exported/133200997/export-064e375db0af8d3bebd056adec204f44-mob_eye.res
 res://art/pupil.tres::f27e1543ccc84907108f03b626db2e13::1757491485::res://.godot/exported/133200997/export-3baec91889270d982a7a39af0d0d5e00-pupil.res
-res://scene/audio_stream_player.tscn::2dcce3dbafc443f701534d059a7bf1c6::1757516841::res://.godot/exported/133200997/export-2595cf67c0189bbbc614a6d1e3698d7b-audio_stream_player.scn
-res://scene/main.tscn::07658ffc2942e621216e9da1d2dda986::1757516840::res://.godot/exported/133200997/export-fa9c8ff5b16a5ec23280afa6577b07ee-main.scn
-res://scene/mob.tscn::923fffbda4539e0c8207041222215ede::1757516840::res://.godot/exported/133200997/export-cc449629d75b8a55c03378f219b14a6e-mob.scn
-res://scene/player.tscn::c429152c956cae6001ced0fd1184eb2d::1757516840::res://.godot/exported/133200997/export-34afcb3bda2393b8f6a0cd71512aeb81-player.scn
-res://scene/stag.tscn::2710ed918c4046df00239fca600da571::1757516841::res://.godot/exported/133200997/export-dacfaf617d742e5a0e074dcebe456a0e-stag.scn
-res://scene/sheep.tscn::fa86e494b73e94e6694b94f4e21e76e7::1757516841::res://.godot/exported/133200997/export-f8c3f2f4dd3f7e105fc33597f8d1b340-sheep.scn
-res://scene/wolf.tscn::a1caa3c9f2ca26c85d1055149c2508cb::1757516841::res://.godot/exported/133200997/export-57104edbe49d4ddab9436b7dd464c7cc-wolf.scn
+res://scene/audio_stream_player.tscn::2dcce3dbafc443f701534d059a7bf1c6::1757846269::res://.godot/exported/133200997/export-2595cf67c0189bbbc614a6d1e3698d7b-audio_stream_player.scn
+res://scene/main.tscn::36403ebd4e1b1ff7e6844fcd0d17a9bd::1757846268::res://.godot/exported/133200997/export-fa9c8ff5b16a5ec23280afa6577b07ee-main.scn
+res://scene/mob.tscn::923fffbda4539e0c8207041222215ede::1757846268::res://.godot/exported/133200997/export-cc449629d75b8a55c03378f219b14a6e-mob.scn
+res://scene/player.tscn::5857e0640b3b2f6380bd27b277c5f514::1757846268::res://.godot/exported/133200997/export-34afcb3bda2393b8f6a0cd71512aeb81-player.scn
+res://scene/stag.tscn::2710ed918c4046df00239fca600da571::1757846268::res://.godot/exported/133200997/export-dacfaf617d742e5a0e074dcebe456a0e-stag.scn
+res://scene/sheep.tscn::fa86e494b73e94e6694b94f4e21e76e7::1757846268::res://.godot/exported/133200997/export-f8c3f2f4dd3f7e105fc33597f8d1b340-sheep.scn
+res://scene/wolf.tscn::a1caa3c9f2ca26c85d1055149c2508cb::1757846268::res://.godot/exported/133200997/export-57104edbe49d4ddab9436b7dd464c7cc-wolf.scn
